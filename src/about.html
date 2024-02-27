@@ -1,55 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Taskify</title>
-    <link rel="stylesheet" href="about.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskify</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>ABOUT</h1>
-    <div class="introduction-custom">
-        <div class="introduction-image-custom">
-            <img src="study.jpg" alt="img" class="intro-image-custom">
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="" />
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">Taskify</span>
+                    <span class="profession">Track Progress</span>
+                </div>
+            </div>
+
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class="bx bx-search icon"></i>
+                    <input type="text" placeholder="Search..." />
+                </li>
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="dashboard.html" onclick="loadContent('dashboard.html')">
+                            <i class="bx bx-home-alt icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="mytasks.html" onclick="loadContent('mytasks.html')">
+                            <i class="bx bx-bar-chart-alt-2 icon"></i>
+                            <span class="text nav-text">My Tasks</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="urgenttasks.html" onclick="loadContent('urgenttasks.html')">
+                            <i class="bx bx-bell icon"></i>
+                            <span class="text nav-text">Urgent Tasks</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="addtask.html" onclick="loadContent('addtask.html')">
+                            <i class="bx bx-wallet icon"></i>
+                            <span class="text nav-text">Add Task</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class="bx bx-log-out icon"></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class="bx bx-moon icon moon"></i>
+                        <i class="bx bx-sun icon sun"></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
         </div>
+    </nav>
+
+    <section class="home">
+        <div class="text">Add Task</div>
+        <div class="addtask-container">
+            <div class="form-custom">
+                <div class="taskname">
+                    <label for="tname">Enter Task Name:</label><br />
+                    <input
+                        type="text"
+                        class="field"
+                        id="tname"
+                        name="tname"
+                        placeholder="task name"
+                    /><br />
+                </div>
+
+                <div class="description">
+                    <label for="desc">Enter a description(optional):</label><br />
+                    <input
+                        type="text"
+                        class="field"
+                        id="desc"
+                        name="desc"
+                        placeholder="description"
+                    /><br />
+                </div>
+
+                <div class="subtask">
+                    <label for="subtask">Enter SubTask(optional):</label><br />
+                    <input
+                        type="text"
+                        class="field"
+                        id="subtask"
+                        name="subtask"
+                        placeholder="sub task"
+                    /><br />
+                </div>
+
+                <div class="start-date">
+                    <label for="sdate">Enter the start date:</label><br />
+                    <input
+                        type="date"
+                        class="field"
+                        id="sdate"
+                        name="sdate"
+                        placeholder="start date"
+                    /><br />
+                </div>
+
+                <div class="end-date">
+                    <label for="edate">Enter the end date:</label><br />
+                    <input
+                        type="date"
+                        class="field"
+                        id="edate"
+                        name="edate"
+                        placeholder="end date"
+                    /><br />
+                </div>
+
+                <div class="custom-category">
+                    <label for="customc">custom category:</label><br />
+                    <input
+                        type="text"
+                        class="field"
+                        id="customc"
+                        name="customc"
+                        placeholder="custom category"
+                    /><br />
+                </div>
+            </div>
+
+            <div class="priority">
+                <label for="priority-checkbox" id="priority-name"
+                    >Choose periodicity (optional)
+                </label>
+                <input
+                    class="prb"
+                    type="radio"
+                    id="option1"
+                    name="prior"
+                    value="daily"
+                />
+                <label for="option1">daily</label>
+                <input
+                    class="prb"
+                    type="radio"
+                    id="option2"
+                    name="prior"
+                    value="weekly"
+                />
+                <label for="option2">weekly</label>
+                <input
+                    class="prb"
+                    type="radio"
+                    id="option3"
+                    name="prior"
+                    value="biweekly"
+                />
+                <label for="option3">biweekly</label>
+                <input
+                    class="prb"
+                    type="radio"
+                    id="option4"
+                    name="prior"
+                    value="monthly"
+                />
+                <label for="option4">monthly</label>
+            </div>
+
+            <div class="recurring-period">
+                <label for="recurring-period-checkbox" id="recurring-period-name"
+                    >Choose recurring period (optional)</label
+                >
+                <input
+                    class="rpc"
+                    type="radio"
+                    id="opt-long"
+                    name="term"
+                    value="long-term"
+                />
+                <label for="opt-long">long term</label>
+                <input
+                    class="rpc"
+                    type="radio"
+                    id="opt-short"
+                    name="term"
+                    value="short-term"
+                />
+                <label for="opt-short">short term</label>
+            </div>
+
+            <div class="duration-type">
+                <label for="priority-dropdown" id="task-priority"
+                    >Priority of the task:</label>
+                <select name="priority" id="priority">
+                    <option value="">Select</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+
+            <div class="addbutton">
+                <button type="button" id="addb">Add Task</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your custom JavaScript -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        // Initialize Firebase
+        const firebaseConfig = {
+          apiKey: "AIzaSyD0d4zyqw75AsBAAsMlCMimKRUVOS8ztSI",
+          authDomain: "taskify-28e9e.firebaseapp.com",
+          databaseURL: "https://taskify-28e9e-default-rtdb.firebaseio.com",
+          projectId: "taskify-28e9e",
+          storageBucket: "taskify-28e9e.appspot.com",
+          messagingSenderId: "839591348961",
+          appId: "1:839591348961:web:b177496c5890970e8905a0"
+        };
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
         
-        <div class="introduction-content-custom">"Our productivity website offers streamlined progress tracking tools tailored for students.
-             With intuitive analytics and visual representations, users gain insights into their study habits, identifying strengths and areas for improvement.
-              By logging study sessions and setting personalized goals, students can optimize their learning strategies and stay focused on academic success. 
-              Our user-friendly interface ensures a seamless experience, empowering students to stay organized and motivated as they track their progress."</div>
-    </div>
-    <div class="introduction-custom2">
-    <div class="introduction-content-custom">
-        "Our productivity website offers robust tools for individuals committed to optimizing their fitness routines. With intuitive progress tracking features, 
-        users can easily monitor their workout consistency and achievements. Detailed analytics and visual representations provide valuable insights into productivity trends,
-         helping users identify strengths and areas for improvement in their fitness regimen. Through personalized goal-setting functionality and workout logging capabilities, individuals can customize their fitness plans to maximize efficiency and motivation."</div>
-    
-    <div class="introduction-image-custom">
-        <img src="fitness.jpg" alt="img" class="intro-image-custom">
-    </div>
-    </div>
 
-    <div class="introduction-custom">
-    <div class="introduction-image-custom">
-        <img src="meditate.jpg" alt="img" class="intro-image-custom">
-    </div>
-    
-    <div class="introduction-content-custom">"Our productivity website provides essential tools for improving meditation and well-being.
-         With intuitive progress tracking, users monitor meditation sessions effortlessly. Detailed analytics offer insights, 
-         while personalized goal-setting tailors practices for individual needs. Our user-friendly interface ensures seamless navigation, 
-        empowering users to prioritize self-care effectively."</div>
-</div> 
+        function addTaskListener() {
+            document.getElementById("addb").addEventListener('click', () => {
+                const taskName = document.getElementById("tname").value;
+                const taskDesc = document.getElementById("desc").value;
+                const subTask = document.getElementById("subtask").value;
+                const startDate = document.getElementById("sdate").value;
+                const endDate = document.getElementById("edate").value;
+                const customCategory = document.getElementById("customc").value;
+                // Retrieve the checked radio buttons
+                const checkedPriorRadio = document.querySelector('input[name="prior"]:checked');
+                const checkedTermRadio = document.querySelector('input[name="term"]:checked');
 
-<div class="introduction-custom2">
-    <div class="introduction-content-custom">
-        "Our productivity website supports better sleep by empowering users to monitor their sleep cycles effectively.
-         Through easy-to-use tools, individuals can gain insights into their sleep patterns and make informed decisions to improve their rest.
-          By tracking sleep duration and quality, users can gradually adjust their routines for better sleep. Our platform encourages users to prioritize healthy
-           sleep habits through personalized tips and guidance.
-         With our website, achieving a balanced sleep cycle is within reach."</div>
-    
-    <div class="introduction-image-custom">
-        <img src="sleep.jpg" alt="img" class="intro-image-custom">
-    </div></div>
+                // Extract values if radio buttons are checked
+                const priority = checkedPriorRadio ? checkedPriorRadio.value : null;
+                const recurringPeriod = checkedTermRadio ? checkedTermRadio.value : null;
+
+                // Perform database operation
+                set(ref(database, 'tasks/' + taskName), {
+                    taskName: taskName,
+                    taskDesc: taskDesc,
+                    subTask: subTask,
+                    startDate: startDate,
+                    endDate: endDate,
+                    customCategory: customCategory,
+                    priority: priority,
+                    recurringPeriod: recurringPeriod
+                }).then(() => {
+                    console.log("Task added successfully!");
+                    // Reset the form
+                    document.getElementById("tname").value = "";
+                    document.getElementById("desc").value = "";
+                    document.getElementById("subtask").value = "";
+                    document.getElementById("sdate").value = "";
+                    document.getElementById("edate").value = "";
+                    document.getElementById("customc").value = "";
+
+                    // Uncheck the checked radio buttons if any
+                    if (checkedPriorRadio) {
+                        checkedPriorRadio.checked = false;
+                    }
+                    if (checkedTermRadio) {
+                        checkedTermRadio.checked = false;
+                    }
+                }).catch((error) => {
+                    console.error("Error adding task: ", error);
+                });
+            });
+        }
+
+        addTaskListener();
+    </script>
+    <script src="toggleTheme.js"></script>
+    <script defer src="addTask.js"></script>
 </body>
 </html>
